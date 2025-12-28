@@ -17,56 +17,37 @@ const { title, description = "たかちゃんピアノ教室のホームペー�
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 	</head>
-	<body class="font-sans text-slate-800 bg-white">
-		<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 py-4">
-			<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-				<a href="#" class="font-serif text-xl md:text-2xl font-bold tracking-wider text-slate-900">
-					TAKA-CHAN PIANO
-				</a>
-				<nav class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-slate-600">
-					<a href="#about" class="hover:text-[#1a365d] transition-colors">About</a>
-					<a href="#lesson" class="hover:text-[#1a365d] transition-colors">Lesson</a>
-					<a href="#price" class="hover:text-[#1a365d] transition-colors">Price</a>
-					<a href="#contact" class="hover:text-[#1a365d] transition-colors">Contact</a>
-				</nav>
-				<a href="#contact" class="md:hidden bg-[#1a365d] text-white text-xs px-4 py-2 rounded-sm uppercase tracking-widest">
-					体験申込
-				</a>
-			</div>
-		</header>
-		
+	<body class="font-sans text-slate-800 antialiased bg-[#FAFAFA]">
 		<slot />
 	</body>
 </html>
 
 <style is:global>
 	:root {
-		/* フォント定義 */
-		--font-serif-en: 'Cinzel Decorative', cursive;
-		--font-sans-en: 'Montserrat', sans-serif;
-		--font-serif-jp: 'Noto Serif JP', serif;
-		--font-sans-jp: 'Noto Sans JP', sans-serif;
-
-		/* カラー定義 */
-		--accent-color: #1a365d; /* 深みのあるネイビー */
-		--bg-secondary: #f8fafc; /* 非常に薄いグレー */
+		--font-heading: 'Zen Old Mincho', serif;
+		--font-body: 'Zen Kaku Gothic New', sans-serif;
 	}
-	/* タイポグラフィの適用 */
-	h1, h2, h3, .font-serif-jp {
-		font-family: var(--font-serif-jp);
+	h1, h2, h3, .font-heading {
+		font-family: var(--font-heading);
 	}
-	.font-serif-en {
-		font-family: var(--font-serif-en);
+	body {
+		font-family: var(--font-body);
 	}
-	body, .font-sans-jp {
-		font-family: var(--font-sans-jp);
-	}
-	.font-sans-en {
-		font-family: var(--font-sans-en);
-	}
+    /* スムーズなフェードイン演出 */
+    .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 </style>
